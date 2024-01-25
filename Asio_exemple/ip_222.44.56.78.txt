@@ -1,0 +1,6 @@
+Aoues Kadda Type File : 
+date : 
+ipv4 : 222.44.56.78
+data section : 
+
+elapsed time to read : 21.0027
