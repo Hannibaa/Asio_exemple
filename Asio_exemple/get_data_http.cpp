@@ -119,7 +119,6 @@ Map_Address get_addresses(const fs::path& filename) {
 
 int main()
 {
-	std::osyncstream str(std::cout);
 	print_ << "-------------------------------------------------" << end_;
 	print_ << "----- Program that read some data from site -----" << end_;
 	print_ << "-------------------------------------------------" << end_;
