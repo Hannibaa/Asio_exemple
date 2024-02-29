@@ -9,3 +9,5 @@
 
 //#define in
 //#define out
+
+#define  _CTRL_C           3
