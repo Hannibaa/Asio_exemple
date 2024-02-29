@@ -11,7 +11,6 @@
       .post()
 */
 
-#define  out   print_ 
 
 void timer_expire(std::string id) {
     print_ << now_time << " " << id << " enter.\n";
