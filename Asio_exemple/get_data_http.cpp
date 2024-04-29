@@ -4,8 +4,6 @@
 #include <fstream>
 
 #include <asio.hpp>
-#include <asio/ts/buffer.hpp>
-#include <asio/ts/internet.hpp>
 
 #include "MyLib/Console_Library/escape_code.h"
 #include "MyLib/CFile.h"
@@ -55,6 +53,9 @@ void scan_ipv4(const std::string adress_ipv4) {
 
 	// Create a socket, the context will deliver the implimentation
 	asio::ip::tcp::socket socket(context);
+
+	// create resolver 
+	asio::ip::tcp::resolver  resoler(context);
 
 	// Tell socket to try and connect 
 	timer.Restart();
@@ -112,10 +113,6 @@ void scan_ipv4(const std::string adress_ipv4) {
 	ofile.close();
 }
 
-Map_Address get_addresses(const fs::path& filename) {
-
-	return {};
-}
 
 int main()
 {
@@ -123,16 +120,11 @@ int main()
 	print_ << "----- Program that read some data from site -----" << end_;
 	print_ << "-------------------------------------------------" << end_;
 
-	// get address from file data :
-	fs::path filename_addresses;
-	
-	auto mapAddresses = get_addresses(filename_addresses);
-
 	// using map to store name of site and theire ip addresses :
 	Map_Address mapAddress{
 		{"google","142.250.201.4" },
 		{"yahoo","87.248.119.252"},
-		{"no-site","8.8.8.8"}
+		{"dns-google","8.8.8.8"}
 	};
 
 

@@ -1,0 +1,28 @@
+ Volume in drive C is Acer
+ Volume Serial Number is D432-5DF3
+
+ Directory of C:\Users\Acer\source\MyProject\Asio_exemple\Asio_exemple
+
+04/25/2024  04:44 PM    <DIR>          .
+04/25/2024  04:44 PM    <DIR>          ..
+01/24/2024  01:55 AM               981 asio_deferred.cpp
+03/12/2024  01:12 AM    <DIR>          Asio_Exemple
+04/25/2024  05:51 AM            23,200 Asio_exemple.vcxproj
+04/25/2024  05:51 AM             4,950 Asio_exemple.vcxproj.filters
+04/23/2024  04:10 PM               225 Asio_exemple.vcxproj.user
+04/14/2024  04:32 PM    <DIR>          Asio_Exemple_cppcon
+03/17/2024  09:34 AM    <DIR>          Asio_Threading
+01/23/2024  11:52 PM    <DIR>          asio_timer
+04/25/2024  04:44 PM                 0 dir.txt
+04/21/2024  06:32 PM               768 DNS_resolver_ip.cpp
+04/21/2024  07:58 PM             1,080 DNS_resolve_hostname.cpp
+12/05/2023  05:38 PM             2,132 exemple_1.cpp
+04/21/2024  05:59 PM             3,908 get_data_http.cpp
+04/22/2024  01:45 PM               893 Get_Locale_ip_address.cpp
+02/08/2024  10:47 AM    <DIR>          Header
+03/17/2024  09:37 AM    <DIR>          include
+04/25/2024  04:44 PM    <DIR>          Pipe and signel
+12/05/2023  05:34 PM               183 read_mouse_memory.c
+11/02/2023  01:30 AM    <DIR>          x64
+              11 File(s)         38,320 bytes
+              10 Dir(s)  519,402,139,648 bytes free
