@@ -7,6 +7,11 @@
 #include "asio_utillity.h"
 #pragma warning(disable : 4996)
 
+/*
+      exemple 1
+	  exemple 2
+*/
+
 #define exemple_2
 
 bool  b_stop = false;
@@ -72,7 +77,6 @@ int main() {
 	while (!b_stop) {
 		for (auto& s : vstr)
 			std::osyncstream(print_) << MOVETO(1, 15 + vstr.size())<< "Size : " << vstr.size() << end_;
-
 	}
 
 	thrContext.join();
