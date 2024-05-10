@@ -36,10 +36,10 @@ namespace {
 	private:
 		void timerExpired(const std::error_code& ec);
 
-		asio::io_context& m_ctx;
-		asio::steady_timer m_timer;
-		bool               m_stop{};
-		int                m_charCount{};
+		asio::io_context&         m_ctx;
+		asio::steady_timer        m_timer;
+		bool                      m_stop{};
+		int                       m_charCount{};
 	};
 
 	Service::Service(asio::io_context& ctx)
