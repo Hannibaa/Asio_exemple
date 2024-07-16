@@ -1,0 +1,97 @@
+#include <iostream>
+#include <memory>
+#include <string>
+#include <boost/asio.hpp>
+
+#define API_KEY "YOUR_API_KEY" // Replace with your actual API key
+#define BASE_URL "https://api.openweathermap.org/data/2.5/weather" // OpenWeatherMap API URL
+
+// Function to construct the API request URL based on city ID
+std::string buildUrl(int cityId) {
+    return BASE_URL "?id=" + std::to_string(cityId) + "&appid=" + API_KEY;
+}
+
+// Function to parse the JSON response and extract relevant weather information
+std::string parseWeather(const std::string& json) {
+    // Implement logic to parse JSON data using a JSON library (e.g., RapidJSON, nlohmann)
+    // Extract specific weather data (e.g., temperature, description) and format a human-readable string
+    // Replace this placeholder with your parsing logic
+    return "Weather data parsing not implemented yet. Please integrate a JSON library.";
+}
+
+int main() {
+    // Replace with the city ID you want to get weather for
+    int cityId = 524901; // London (example)
+
+    try {
+        boost::asio::io_context io_context;
+
+        // Create a TCP socket
+        boost::asio::ip::tcp::socket socket(io_context);
+
+        // Resolve the hostname and port
+        boost::asio::ip::tcp::resolver resolver(io_context);
+        boost::asio::ip::tcp::resolver::results_type endpoints =
+            resolver.resolve({"api.openweathermap.org", "https"});
+
+        // Connect to the server
+        boost::asio::connect(socket, endpoints);
+
+        // Build the HTTP GET request
+        std::string request = "GET " + buildUrl(cityId) + " HTTP/1.1\r\n";
+        request += "Host: api.openweathermap.org\r\n";
+        request += "Connection: close\r\n\r\n";
+
+        // Send the request
+        boost::asio::write(socket, boost::asio::buffer(request));
+
+        // Receive the response
+        boost::asio::streambuf response_buffer;
+        boost::asio::read_until(socket, response_buffer, "\r\n\r\n");
+
+        // Extract the response body
+        std::string response = boost::asio::buffer_cast<const char*>(response_buffer.data());
+
+        // Check for successful HTTP status code (e.g., 200 OK)
+        if (response.find("200 OK") != std::string::npos) {
+            // Extract the JSON data from the response body
+            std::size_t json_start = response.find('{');
+            std::string json_data = response.substr(json_start);
+
+            // Parse the JSON data and extract weather information
+            std::string weather_info = parseWeather(json_data);
+            std::cout << weather_info << std::endl;
+        } else {
+            std::cerr << "Error: HTTP request failed." << std::endl;
+        }
+    } catch (std::exception& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
+Use code with caution.
+content_copy
+Explanation:
+
+Include necessary libraries:
+
+iostream for input/output
+memory for smart pointers (optional)
+string for string manipulation
+boost/asio.hpp for Asio networking library
+Define API details:
+
+API_KEY: Replace with your actual API key from a weather service like OpenWeatherMap (https://openweathermap.org/)
+BASE_URL: Base URL of the API endpoint
+buildUrl function:
+
+Takes a city ID as input
+Constructs the API request URL by appending city ID and your API key
+parseWeather function (placeholder):
+
+Needs implementation using a JSON library (e.g., RapidJSON, nlohmann) to parse the JSON response and extract weather information (temperature, description, etc.)
+Formats the extracted data into a human-readable string
+main function:
+
+Sets the city ID (replace with your desired city)
